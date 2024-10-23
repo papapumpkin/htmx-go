@@ -60,17 +60,20 @@ In my opinion, downgrading database schemas in production can lead to data corru
 
    ```bash
    git clone https://github.com/papapumpkin/go-htmx.git
-   cd go-htmx-crud```
+   cd go-htmx-crud
+   ```
 
 2. Install dependencies:
 
   ```bash
-  go mod tidy```
+  go mod tidy
+  ```
 
 3. Start Postgres (docker-compose):
 
   ```bash
-  docker compose up -d```
+  docker compose up -d
+  ```
 
 4. Start the application with Air (note: this runs a database migration):
 
