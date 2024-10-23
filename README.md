@@ -1,6 +1,6 @@
 # Go + htmx Fullstack CRUD Application
 
-This is a basic fullstack web application built with Go and htmx. The application demonstrates a CRUD (Create, Read, Update, Delete) form where users can submit fields via an interface, and the data is stored in a PostgreSQL database. It is designed to be a simple starting point that can be extended to a more complex application in the future.
+This is a basic fullstack web application built with Go and htmx. The application demonstrates a CRUD (Create, Read, Update, Delete) form where users can submit fields via an interface, and the data is stored in a PostgreSQL database. It is designed to be a simple starting point that can be extended to a more complex application in the future. Next thing I would add is unit tests.
 
 ## Stack Overview
 
