@@ -1,0 +1,45 @@
+package components
+
+templ OrderForm() {
+    <form
+        hx-post="/orders"
+        hx-trigger="submit"
+        hx-swap="none"
+        onsubmit="htmx:afterOnLoad: window.location.reload()"
+        class="w-96"
+    >
+        <input
+            type="text"
+            name="patient_first_name"
+            class="w-full border rounded-lg mb-2 p-4"
+            placeholder="Patient First Name"
+            required
+        />
+        <input
+            type="text"
+            name="patient_last_name"
+            class="w-full border rounded-lg mb-2 p-4"
+            placeholder="Patient Last Name"
+            required
+        />
+        <input
+            type="text"
+            name="provider_first_name"
+            class="w-full border rounded-lg mb-2 p-4"
+            placeholder="Provider First Name"
+            required
+        />
+        <input
+            type="text"
+            name="provider_last_name"
+            class="w-full border rounded-lg mb-2 p-4"
+            placeholder="Provider Last Name"
+            required
+        />
+        <button
+            class="py-1 px-4 w-full h-10 rounded-lg text-white bg-zinc-800"
+        >
+            Create
+        </button>
+    </form>
+}

@@ -1,0 +1,26 @@
+package views
+
+import "htmx-go/views/components"
+
+templ Index(orders []*components.Order) {
+    <!DOCTYPE html>
+    <html lang="en">
+        @components.Header()
+        <body>
+            <main class="min-h-screen w-full">
+                <nav class="flex w-full border border-b-zinc-200 px-4 py-4">
+                    <h3 class="text-base lg:text-lg font-medium text-center">
+                        Orders
+                    </h3>
+                </nav>
+                <div class="mt-6 w-full flex justify-center items-center flex-col">
+                    @components.OrderForm()
+                    <section class="border-t border-t-zinc-200 mt-6 px-2 py-4 w-96">
+                        @components.PlacedOrderList(orders)
+                    </section>
+                </div>
+            </main>
+        </body>
+        @components.Footer()
+    </html>
+}

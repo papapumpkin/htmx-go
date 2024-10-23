@@ -1,0 +1,10 @@
+services:
+  db:
+    container_name: htmx-go-postgres
+    image: public.ecr.aws/docker/library/postgres:14.7
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=database
+    ports:
+      - 5432:5432

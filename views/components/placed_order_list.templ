@@ -1,0 +1,46 @@
+package components
+
+import "fmt"
+
+type Order struct {
+    Id                string
+    PatientFirstName  string
+    PatientLastName   string
+    ProviderFirstName string
+    ProviderLastName  string
+}
+
+templ PlacedOrderList(orders []*Order) {
+    <div class="overflow-auto max-h-64 w-full">
+        <ul id="order-list">
+            for _, order := range orders {
+                <li class="ml-4 ml-4 border p-2 rounded-lg mb-2" id={ fmt.Sprintf("order-%s", order.Id) }>
+                    <p class="font-medium text-sm">Order ID: { order.Id }</p>
+                    <p class="text-sm text-zinc-500 mb-2">
+                        Patient: { order.PatientFirstName } { order.PatientLastName }
+                    </p>
+                    <p class="text-sm text-zinc-500 mb-2">
+                        Provider: { order.ProviderFirstName } { order.ProviderLastName }
+                    </p>
+                    <div class="flex gap-4 items-center mt-2">
+                        <a
+                            href="#"
+                            class="flex items-center border py-1 px-2 rounded-lg"
+                        >
+                            <p class="text-sm">Edit</p>
+                        </a>
+                        <button
+                            hx-delete={ fmt.Sprintf("/orders/%s", order.Id) }
+                            hx-swap="delete"
+                            hx-target={ fmt.Sprintf("#order-%s", order.Id) }
+                            hx-on="htmx:afterOnLoad: window.location.reload()"
+                            class="flex items-center border py-1 px-2 rounded-lg hover:bg-red-300"
+                        >
+                            <p class="text-sm">Delete</p>
+                        </button>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+}
