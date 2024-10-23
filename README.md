@@ -78,6 +78,7 @@ In my opinion, downgrading database schemas in production can lead to data corru
 4. Start the application with Air (note: this runs a database migration):
 
   ```bash
-  air -c .air.toml```
+  air -c .air.toml
+  ```
 
 5. Open `localhost:8081` in browser
