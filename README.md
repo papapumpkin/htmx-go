@@ -18,7 +18,7 @@ This is a basic fullstack web application built with Go and htmx. The applicatio
 - **CRUD Operations**: Basic operations to create, read, update, and delete records via a form interface.
 - **Live-reloading Local Development**: Start up production replica with Air, allowing you to see code changes reflected instantly in your running application on your local machine.
 - **Server-side Templating**: Dynamic HTML rendering with Templ keeps the backend and frontend tightly coupled. This whole application could be packaged as a single Container and deployed to Kubernetes or similar.
-- **Minimal JavaScript**: Uses htmx to simplify frontend interaction without writing custom JavaScript. Not the right choice for all web applications but in this simple CRUD app reduces cost of maintainance.
+- **Minimal JavaScript**: Uses htmx to simplify frontend interaction without writing custom JavaScript. Not the right choice for all web applications but in this simple CRUD app it reduces cost of maintainance.
 
 ### Why Use a Repository Pattern?
 
@@ -40,7 +40,7 @@ Building applications in layers like this (e.g., separating business logic, data
 - **Declarative Approach**: You specify the desired state of the database schema, and Atlas plans and applies changes to bring the database to that state automatically.
 - **Versioned Approach**: Changes to the database schema are stored as versioned SQL files, where each version contains the SQL statements required to move the database from its current state to the desired state. Atlas automatically generates these versioned migration files, making it easy to track and review schema changes over time. This approach integrates well with version control systems, allowing teams to review database migrations before applying them.
 
-In this project, we prefer the **versioned approach**, as it provides transparency and control over database changes. Each time a schema change is made, Atlas generates a new SQL migration file, which can be checked into version control and reviewed. This helps maintain a clear history of all changes applied to the database over time.
+In this project, I've chosen the **versioned approach** because each time a schema change is made, Atlas generates a new SQL migration file, which can be checked into version control and reviewed. This helps maintain a clear history of all changes applied to the database over time, enhancing compliance adherance.
 
 **Goose** is another migration tool that supports versioned migrations. Goose allows for two types of migration files: SQL files for schema changes and Go files for more complex data migrations. While Goose doesn’t support automatic migrations like Atlas, it offers flexibility by allowing both schema and data migrations to be performed in an ordered, controlled manner.
 
@@ -63,15 +63,18 @@ In my opinion, downgrading database schemas in production can lead to data corru
    cd go-htmx-crud```
 
 2. Install dependencies:
+
   ```bash
   go mod tidy```
 
 3. Start Postgres (docker-compose):
+
   ```bash
   docker compose up -d
   ```
 
 4. Start the application with Air (note: this runs a database migration):
+
   ```bash
   air -c .air.toml
   ```
